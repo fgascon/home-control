@@ -1,5 +1,7 @@
 <?php
 
+$passwords = include('../../passwords.php');
+
 return array(
 	
 	'components'=>array(
@@ -15,7 +17,7 @@ return array(
 		'db'=>array(
             'connectionString'=>'mysql:host=127.0.0.1;dbname=home-control',
             'username'=>'home-control',
-            'password'=>'9SW4uzjVVYX3RzUB',
+            'password'=>$passwords['prod_db'],
             'emulatePrepare'=>true, 
 		),
 	),
