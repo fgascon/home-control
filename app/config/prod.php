@@ -1,6 +1,6 @@
 <?php
 
-$passwords = include('../../passwords.php');
+$passwords = include(dirname(__FILE__).'/../../passwords.php');
 
 return array(
 	
