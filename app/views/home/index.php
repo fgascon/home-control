@@ -14,7 +14,8 @@ jQuery(function($){
 			btn.html(state ? "Turn off" : "Turn on");
 		});
 	}
-	refreshState();
+	setTimeout(refreshState, 0);
+	setInterval(refreshState, 5000);
 	btn.click(function(evt){
 		evt.preventDefault();
 		$.get(BASE_URL + '/arduino/12/' + (currentState ? 'off' : 'on'), function(){
