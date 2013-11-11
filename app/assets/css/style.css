@@ -1,0 +1,23 @@
+html {   
+  
+}
+
+body{
+	background: transparent;
+}
+
+.navbar{
+	margin-top: 8px;
+}
+
+.form .errorMessage{
+	color: #B94A48;
+}
+
+.login-form{
+	margin-top: 100px;
+}
+
+.container-narrow{
+	max-width: 600px;
+}
