@@ -18,12 +18,12 @@ jQuery(function($){
 	setInterval(refreshState, 5000);
 	btn.click(function(evt){
 		evt.preventDefault();
-		$.get(BASE_URL + '/arduino/12/' + (currentState ? 'off' : 'on'), function(){
+		$.get(BASE_URL + '/lights/' + (currentState ? 'off' : 'on'), function(){
 			setTimeout(refreshState, 100);
 		});
 	});
 	function getState(callback){
-		$.get(BASE_URL + '/arduino/12', function(data){
+		$.get(BASE_URL + '/lights', function(data){
 			if(data && data.success){
 				callback(data.state);
 			}else{
