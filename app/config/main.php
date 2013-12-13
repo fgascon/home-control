@@ -35,5 +35,10 @@ return array(
 		'db'=>array(
 			'charset'=>'utf8',
 		),
+		'smartthings'=>array(
+			'class'=>'SmartThings',
+			'client'=>$passwords['smartthings_client'],
+			'secret'=>$passwords['smartthings_secret'],
+		),
 	),
 );

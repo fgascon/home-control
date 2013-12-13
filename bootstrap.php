@@ -7,6 +7,8 @@ $appPath = "$basePath/app";
 
 require_once($basePath.'/framework/yii.php');
 
+$passwords = include($basePath.'/passwords.php');
+
 $config = CMap::mergeArray(
 	include("$appPath/config/main.php"),
 	include("$appPath/config/$enviro.php")

@@ -1,6 +1,21 @@
 
-<h2>Sapin de noël</h2>
-<a href="#" id="switch-light"></a>
+<h4>Sapin de noël</h4>
+<a href="#" id="switch-light" class="btn btn-default"></a>
+
+<?php foreach(Yii::app()->smartthings->endpoints as $endpoint):?>
+	<?php foreach($endpoint->makeCall('/switches') as $switch):?>
+		<h4><?php echo CHtml::encode($switch['label']);?></h4>
+		<?php echo CHtml::link("Turn ON", $endpoint->createUrl('/switches/'.$switch['id'].'/on'), array(
+			'class'=>'btn btn-default smartthings-action',
+		));?>
+		<?php echo CHtml::link("Turn OFF", $endpoint->createUrl('/switches/'.$switch['id'].'/off'), array(
+			'class'=>'btn btn-default smartthings-action',
+		));?>
+		<?php echo CHtml::link("Toggle", $endpoint->createUrl('/switches/'.$switch['id'].'/toggle'), array(
+			'class'=>'btn btn-default smartthings-action',
+		));?>
+	<?php endforeach;?>
+<?php endforeach;?>
 
 <?php Yii::app()->clientScript->registerPackage('jquery');?>
 <script>
@@ -31,5 +46,19 @@ jQuery(function($){
 			}
 		});
 	}
+	
+	$('.smartthings-action').click(function(evt){
+		evt.preventDefault();
+		var btn = $(this);
+		btn.attr('disabled', 'disabled');
+		$.ajax({
+			url: btn.attr('href'),
+			cache: false,
+			crossDomain: true,
+			complete: function(){
+				btn.removeAttr('disabled');
+			}
+		});
+	});
 });
 </script>

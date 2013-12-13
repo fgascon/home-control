@@ -27,12 +27,12 @@ return array(
 			),
 		),
 		'cache'=>array(
-			'class'=>'CDummyCache',
+			//'class'=>'CDummyCache',
 		),
 		'db'=>array(
 			'connectionString'=>'mysql:host=127.0.0.1;dbname=home-control',
-			'username'=>'root',
-			'password'=>'',
+			'username'=>'home-control',
+			'password'=>$passwords['dev_db'],
 			'emulatePrepare'=>true,
 		),
 	),
